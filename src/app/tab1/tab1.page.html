@@ -1,17 +1,46 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      News
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>La Nacion
+        <div class="noticia-more">
+          <ion-button (click)="lanzarMenu()" fill="clear">
+            <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-card-subtitle>
+      <ion-card-title>Coronavirus: El impacto en la curva de contagios que tendrán las restricciones según los expertos - LA NACION</ion-card-title>
+      <ion-img src="https://resizer.glanacion.com/resizer/XKTiXwLWBWwZUuF7SrmrczQIONU=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VUCQITLLSJG5HJGSX5MFXZ3KLY.JPG"></ion-img>
+    </ion-card-header>
+  
+    <ion-card-content>
+      2021-04-16T06:51:00Z. Celes Piedrabuena, Infectólogos señalan que las restricciones, de ser cumplidas, podrían lograr en dos o tres semanas que los casos lleguen a una meseta, aunque el AMBA continuará en un nivel alto de casos positivos.
+    </ion-card-content>
+  </ion-card>
+  <ion-grid fixed *ngFor="let article of articles">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>{{article.source.name}}
+          <div class="noticia-more">
+            <ion-button (click)="lanzarMenu()" fill="clear">
+              <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-card-subtitle>
+        <ion-card-title>{{article.title}}</ion-card-title>
+        <ion-img [src]="article.urlToImage"></ion-img>
+      </ion-card-header>
+    
+      <ion-card-content>
+        {{article.publishedAt}}. {{article.author}} {{article.description}}.
+      </ion-card-content>
+    </ion-card>
+  </ion-grid>  
 </ion-content>
