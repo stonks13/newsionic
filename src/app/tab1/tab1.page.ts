@@ -10,7 +10,7 @@ export class Tab1Page {
   articles: any;
 
   constructor() {
-    //this.getJson();
+    this.getJson();
   }
 
   async getJson(){

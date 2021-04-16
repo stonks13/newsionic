@@ -10,7 +10,7 @@ export class Tab2Page {
   articles: any;
 
   constructor() {
-    //this.getJson("business");
+    this.getJson("business");
   }
 
   async getJson(categ: string){
